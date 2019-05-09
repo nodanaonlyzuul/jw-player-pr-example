@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JwPlayer Issue Examples</title>
+    <script
+			  src="https://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jwplayer.com/libraries/KRF3T2Kr.js"></script>
+    <script type="text/javascript" src="my-player.js"></script>
+  </head>
+  <body style="margin: 20px;">
+    <h1>Not Working in Version 8.8.5</h1>
+
+    <h2>Background</h2>
+    <p>
+      This player has been instantiated with low / medium / and high "sources". <br>
+      The "kiw" source is broken. If the user selects "low":
+    </p>
+
+    <ol>
+      <li>The <code>on('error')</code> callback will try reinstantiate the player</li>
+      <li>It will fail because <code>player.getCurrentQuality()</code> returns -1.</li>
+      <li><strong>Check your browser's JS console for output</strong></li>
+    </ol>
+
+    <p>
+      <strong>This will fail because </strong>
+    </p>
+
+    <h2>Code</h2>
+    <p>
+      See <a href="./my-player.js">my-player.js</a>
+    </p>
+
+    <h2>Player</h2>
+    <div style="max-width: 25%">
+      <div id="videoContainer"></div>
+    </div>
+  </body>
+</html>
